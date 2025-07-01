@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💍 Arooza's Bridal Shower Day Plan</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/umd/lucide.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #fdf2f8 0%, #fef7f7 50%, #ffffff 100%);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Floating Hearts Animation */
+        .floating-hearts {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .floating-heart {
+            position: absolute;
+            animation: bounce 3s infinite;
+            opacity: 0.2;
+            color: #f472b6;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 53%, 80%, 100% { transform: translate3d(0,0,0); }
+            40%, 43% { transform: translate3d(0,-30px,0); }
+            70% { transform: translate3d(0,-15px,0); }
+            90% { transform: translate3d(0,-4px,0); }
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            z-index: 50;
+            border-bottom: 1px solid #fce7f3;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-logo {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(45deg, #f472b6, #fb7185);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .nav-title {
+            font-weight: bold;
+            color: #1f2937;
+        }
+
+        .nav-links {
+            display: none;
+            gap: 24px;
+            font-size: 14px;
+        }
+
+        .nav-link {
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            color: #ec4899;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 80px;
+            padding-bottom: 64px;
+            padding-left: 16px;
+            padding-right: 16px;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero-emoji {
+            font-size: 4rem;
+            margin-bottom: 16px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ec4899, #fb7185, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 4rem;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #6b7280;
+            margin-bottom: 24px;
+        }
+
+        .hero-date {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            color: #6b7280;
+            margin-bottom: 32px;
+            font-size: 1.125rem;
+            font-weight: 500;
+        }
+
+        .hero-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            max-width: 512px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .hero-cards {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(4px);
+            border-radius: 16px;
+            padding: 16px;
+            border: 1px solid #fce7f3;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .hero-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-card-icon {
+            margin: 0 auto 8px;
+            color: #ec4899;
+        }
+
+        .hero-card-title {
+            font-weight: 500;
+            color: #1f2937;
+            font-size: 14px;
+        }
+
+        .hero-card-time {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            padding: 64px 16px;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .timeline-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline-title {
+            font-size: 1.875rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 48px;
+            color: #1f2937;
+        }
+
+        .timeline-items {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .timeline-item {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .timeline-icon {
+            flex-shrink: 0;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            color: white;
+        }
+
+        .timeline-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .timeline-icon.morning {
+            background: linear-gradient(45deg, #fce7f3, #fda4af);
+        }
+
+        .timeline-icon.afternoon {
+            background: linear-gradient(45deg, #fda4af, #f472b6);
+        }
+
+        .timeline-icon.evening {
+            background: linear-gradient(45deg, #f472b6, #fb7185);
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #fce7f3;
+            transition: all 0.3s;
+        }
+
+        .timeline-content:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .timeline-time {
+            font-size: 1.125rem;
+            font-weight: bold;
+            color: #1f2937;
+        }
+
+        .timeline-title-item {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 16px;
+        }
+
+        .timeline-activities {
+            display: grid;
+            gap: 12px;
+        }
+
+        .timeline-activity {
+            background: linear-gradient(45deg, #fdf2f8, #fef7f7);
+            border-radius: 8px;
+            padding: 12px;
+            border-left: 4px solid #f472b6;
+        }
+
+        .activity-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .activity-team {
+            background: #fce7f3;
+            color: #be185d;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .activity-location {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #6b7280;
+            gap: 4px;
+        }
+
+        .activity-time {
+            font-size: 14px;
+            font-weight: 500;
+            color: #ec4899;
+            margin-bottom: 4px;
+        }
+
+        .activity-desc {
+            color: #374151;
+        }
+
+        .timeline-connector {
+            position: absolute;
+            left: 32px;
+            top: 64px;
+            width: 2px;
+            height: 32px;
+            background: linear-gradient(to bottom, #f472b6, #fda4af);
+        }
+
+        /* Extra Touches Section */
+        .extras-section {
+            padding: 64px 16px;
+            background: linear-gradient(45deg, #fdf2f8, #fef7f7);
+        }
+
+        .extras-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .extras-title {
+            font-size: 1.875rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 16px;
+            color: #1f2937;
+        }
+
+        .extras-subtitle {
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 48px;
+        }
+
+        .extras-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .extras-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .extras-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .extra-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #fce7f3;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .extra-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .extra-icon {
+            background: linear-gradient(45deg, #fce7f3, #fdf2f8);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            color: #ec4899;
+            transition: transform 0.3s;
+        }
+
+        .extra-card:hover .extra-icon {
+            transform: scale(1.1);
+        }
+
+        .extra-title {
+            font-size: 1.125rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+
+        .extra-desc {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(45deg, #ec4899, #fb7185);
+            color: white;
+            padding: 48px 16px;
+            text-align: center;
+        }
+
+        .footer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .footer-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+
+        .footer-text {
+            color: #fce7f3;
+            margin-bottom: 24px;
+        }
+
+        .footer-hearts {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: #fce7f3;
+        }
+
+        /* Utility classes */
+        .icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .icon-sm {
+            width: 16px;
+            height: 16px;
+        }
+
+        .icon-lg {
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts -->
+    <div class="floating-hearts" id="floating-hearts"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="nav-logo">
+                    <i data-lucide="heart" class="icon-sm"></i>
+                </div>
+                <span class="nav-title">Arooza's Day</span>
+            </div>
+            <div class="nav-links">
+                <a href="#hero" class="nav-link">Home</a>
+                <a href="#timeline" class="nav-link">Timeline</a>
+                <a href="#extras" class="nav-link">Extra Touches</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-container">
+            <div class="hero-emoji">💍</div>
+            <h1 class="hero-title">Arooza's Bridal Shower</h1>
+            <p class="hero-subtitle">A Day to Celebrate Love, Friendship & Arooza</p>
+            
+            <div class="hero-date">
+                <i data-lucide="calendar" class="icon"></i>
+                <span>Sunday, 13th July</span>
+            </div>
+
+            <div class="hero-cards">
+                <div class="hero-card">
+                    <i data-lucide="star" class="hero-card-icon icon-lg"></i>
+                    <div class="hero-card-title">Morning Setup</div>
+                    <div class="hero-card-time">9:30 AM - 12:00 PM</div>
+                </div>
+                <div class="hero-card">
+                    <i data-lucide="coffee" class="hero-card-icon icon-lg"></i>
+                    <div class="hero-card-title">Afternoon Tea</div>
+                    <div class="hero-card-time">1:00 PM - 4:00 PM</div>
+                </div>
+                <div class="hero-card">
+                    <i data-lucide="heart" class="hero-card-icon icon-lg"></i>
+                    <div class="hero-card-title">Evening Fun</div>
+                    <div class="hero-card-time">4:30 PM - 8:00 PM</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="timeline-section">
+        <div class="timeline-container">
+            <h2 class="timeline-title">🌸 Complete Day Timeline</h2>
+            
+            <div class="timeline-items">
+                <!-- Morning Setup -->
+                <div class="timeline-item">
+                    <div class="timeline-icon morning">
+                        <i data-lucide="star" class="icon-lg"></i>
+                    </div>
+                    
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <i data-lucide="clock" class="icon"></i>
+                            <span class="timeline-time">9:30 AM - 12:00 PM</span>
+                        </div>
+                        
+                        <h3 class="timeline-title-item">Morning Setup</h3>
+                        
+                        <div class="timeline-activities">
+                            <div class="timeline-activity">
+                                <div class="activity-meta">
+                                    <span class="activity-team">🎀 Team A</span>
+                                    <span class="activity-location">
+                                        <i data-lucide="map-pin" class="icon-sm"></i>
+                                        Rafia's House
+                                    </span>
+                                </div>
+                                <div class="activity-desc">Set up evening decor: balloons, grazing table, gift station, desserts</div>
+                            </div>
+                            <div class="timeline-activity">
+                                <div class="activity-meta">
+                                    <span class="activity-team">🌷 Team B</span>
+                                    <span class="activity-location">
+                                        <i data-lucide="map-pin" class="icon-sm"></i>
+                                        Afternoon Tea Venue
+                                    </span>
+                                </div>
+                                <div class="activity-desc">Personalised table setup: name cards, balloons, mini photo prints</div>
+                            </div>
+                            <div class="timeline-activity">
+                                <div class="activity-meta">
+                                    <span class="activity-team">💄 Arooza</span>
+                                    <span class="activity-location">
+                                        <i data-lucide="map-pin" class="icon-sm"></i>
+                                        At home / Rafia's
+                                    </span>
+                                </div>
+                                <div class="activity-desc">Bride gets ready (timing to suit her glam schedule)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-connector"></div>
+                </div>
+
+                <!-- Afternoon Tea -->
+                <div class="timeline-item">
+                    <div class="timeline-icon afternoon">
+                        <i data-lucide="coffee" class="icon-lg"></i>
+                    </div>
+                    
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <i data-lucide="clock" class="icon"></i>
+                            <span class="timeline-time">1:00 PM - 4:00 PM</span>
+                        </div>
+                        
+                        <h3 class="timeline-title-item">Afternoon Tea Celebration</h3>
+                        
+                        <div class="timeline-activities">
+                            <div class="timeline-activity">
+                                <div class="activity-time">12:30 PM</div>
+                                <div class="activity-desc">Everyone regroups and heads to venue</div>
+                            </div>
+                            <div class="timeline-activity">
+                                <div class="activity-time">1:00 PM - 4:00 PM</div>
+                                <div class="activity-desc">Private Afternoon Tea at TBC venue (halal & private)</div>
+                            </div>
+                            <div class="timeline-activity">
+                                <div class="activity-desc">💬 Welcome toast or speech for Arooza</div>
+                            </div>
+                            <div class="timeline-activity">
+                                <div class="activity-desc">🎉 Icebreaker: "How Well Do You Know the Bride?" quiz</div>
+                            </div>
+                            <div class="timeline-activity">
+                                <div class="activity-desc">📸 Group photos + Gift opening</div>
+                            </div>
+                            <div class="timeline-activity">
+                                <div class="activity-desc">🎲 Optional games: Bridal Bingo, Guess the Memory</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-connector"></div>
+                </div>
+
+                <!-- Evening Fun -->
+                <div class="timeline-item">
+                    <div class="timeline-icon evening">
+                        <i data-lucide="heart" class="icon-lg"></i>
+                    </div>
+                    
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <i data-lucide="clock" class="icon"></i>
+                            <span class="timeline-time">4:30 PM - 8:00 PM</span>
+                        </div>
+                        
+                        <h3 class="timeline-title-item">Evening Chill & Fun</h3>
+                        
+                        <div class="timeline-activities">
+                            <div class="timeline-activity">
+                                <div class="activity-time">4:30 - 5:15 PM</div>
+                                <div class="activity-desc">Sip & Paint – canvases, paint kits, mocktails, guided or freestyle</div>
+                            </div>
+                            <div class="timeline-activity">
+                                <div class="activity-time">5:15 - 5:45 PM</div>
+                                <div class="activity-desc">Joint Gift Reveal + Memory Moment (Polène bag & skincare gift basket)</div>
+                            </div>
+                            <div class="timeline-activity">
+                                <div class="activity-time">5:45 - 6:30 PM</div>
+                                <div class="activity-desc">Karaoke – themed playlist, bride's favourites, fun group songs</div>
+                            </div>
+                            <div class="timeline-activity">
+                                <div class="activity-time">6:30 - 7:30 PM</div>
+                                <div class="activity-desc">Pizza & Dessert Bar – mocktails, cake, treats</div>
+                            </div>
+                            <div class="timeline-activity">
+                                <div class="activity-time">7:30 - 8:00 PM</div>
+                                <div class="activity-desc">Chill-out photos + Optional closing dua or blessing circle</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Extra Touches Section -->
+    <section id="extras" class="extras-section">
+        <div class="extras-container">
+            <h2 class="extras-title">💡 Optional Extra Touches</h2>
+            <p class="extras-subtitle">Add-on activities to make the day even more special</p>
+            
+            <div class="extras-grid">
+                <div class="extra-card">
+                    <div class="extra-icon">
+                        <i data-lucide="gift" class="icon-lg"></i>
+                    </div>
+                    <h3 class="extra-title">"Letter to the Bride" Corner</h3>
+                    <p class="extra-desc">Everyone writes Arooza a private note to keep</p>
+                </div>
+
+                <div class="extra-card">
+                    <div class="extra-icon">
+                        <i data-lucide="coffee" class="icon-lg"></i>
+                    </div>
+                    <h3 class="extra-title">Decorate-Your-Own Cupcake</h3>
+                    <p class="extra-desc">Interactive dessert station</p>
+                </div>
+
+                <div class="extra-card">
+                    <div class="extra-icon">
+                        <i data-lucide="star" class="icon-lg"></i>
+                    </div>
+                    <h3 class="extra-title">Bridal Trivia Game</h3>
+                    <p class="extra-desc">Fun quiz with mini prizes</p>
+                </div>
+
+                <div class="extra-card">
+                    <div class="extra-icon">
+                        <i data-lucide="camera" class="icon-lg"></i>
+                    </div>
+                    <h3 class="extra-title">Polaroid Photo Wall</h3>
+                    <p class="extra-desc">Memory wall with clips & fairy lights</p>
+                </div>
+
+                <div class="extra-card">
+                    <div class="extra-icon">
+                        <i data-lucide="palette" class="icon-lg"></i>
+                    </div>
+                    <h3 class="extra-title">Shared Canvas Painting</h3>
+                    <p class="extra-desc">Everyone adds to one artwork as keepsake</p>
+                </div>
+
+                <div class="extra-card">
+                    <div class="extra-icon">
+                        <i data-lucide="heart" class="icon-lg"></i>
+                    </div>
+                    <h3 class="extra-title">Gratitude Moment</h3>
+                    <p class="extra-desc">Peaceful dua or reflection circle</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-emoji">🌸</div>
+            <h3 class="footer-title">Here's to Love, Laughter & Happily Ever After</h3>
+            <p class="footer-text">
+                A celebration of friendship, joy, and all the beautiful moments that make life special
+            </p>
+            <div class="footer-hearts">
+                <i data-lucide="heart" class="icon"></i>
+                <span>Made with love for Arooza</span>
+                <i data-lucide="heart" class="icon"></i>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Create floating hearts animation
+        function createFloatingHearts() {
+            const container = document.getElementById('floating-hearts');
+            const hearts = ['💖', '💕', '💝', '🌸', '🌹', '💐'];
+            
+            for (let i = 0; i < 6; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.top = Math.random() * 100 + '%';
+                heart.style.animationDelay = i * 0.5 + 's';
+                heart.style.fontSize = (Math.random() * 8 + 12) + 'px';
+                container.appendChild(heart);
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    const offsetTop = targetSection.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add interactive animations
+        function addInteractiveAnimations() {
+            // Parallax effect for floating hearts
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const hearts = document.querySelectorAll('.floating-heart');
+                hearts.forEach((heart, index) => {
+                    const speed = 0.5 + (index * 0.1);
+                    heart.style.transform = `translateY(${scrolled * speed}px)`;
+                });
+            });
+
+            // Intersection Observer for fade-in animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe timeline items and extra cards
+            document.querySelectorAll('.timeline-item, .extra-card').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            createFloatingHearts();
+            addInteractiveAnimations();
+            
+            // Add click effects to cards
+            document.querySelectorAll('.hero-card, .extra-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+        });
+
+        // Add current time display (optional enhancement)
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            // You could add this to the nav if desired
+        }
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>
