@@ -8,10 +8,10 @@
     <!-- Social Media Preview Meta Tags -->
     <meta property="og:title" content="💍 Arooza's Bridal Shower Day Plan">
     <meta property="og:description" content="A Day to Celebrate Love, Friendship & Arooza - Sunday, 13th July. Complete timeline with afternoon tea, sip & paint, karaoke and more!">
-    <meta property="og:image" content="https://tribe-girls.github.io/aro-bridal-shower/preview-image.jpg">
+    <meta property="og:image" content="https://yourusername.github.io/arooza-bridal-shower/preview-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:url" content="https://tribe-girls.github.io/aro-bridal-shower">
+    <meta property="og:url" content="https://yourusername.github.io/arooza-bridal-shower">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Arooza's Bridal Shower">
     
@@ -19,7 +19,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="💍 Arooza's Bridal Shower Day Plan">
     <meta name="twitter:description" content="A Day to Celebrate Love, Friendship & Arooza - Sunday, 13th July">
-    <meta name="twitter:image" content="https://tribe-girls.github.io/aro-bridal-shower/preview-image.jpg">
+    <meta name="twitter:image" content="https://yourusername.github.io/arooza-bridal-shower/preview-image.jpg">
     
     <!-- General Meta Tags -->
     <meta name="description" content="Complete day plan for Arooza's bridal shower including morning setup, afternoon tea celebration, and evening activities with sip & paint, karaoke, and more!">
@@ -40,6 +40,148 @@
             background: linear-gradient(135deg, #fdf2f8 0%, #fef7f7 50%, #ffffff 100%);
             position: relative;
             overflow-x: hidden;
+        }
+
+        /* Welcome Page Styles */
+        .welcome-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 25%, #f9a8d4 75%, #ec4899 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 1s ease-out, visibility 1s ease-out;
+        }
+
+        .welcome-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .welcome-content {
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 10;
+        }
+
+        .welcome-ring {
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            animation: welcomeRing 3s ease-in-out infinite;
+            filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.3));
+        }
+
+        @keyframes welcomeRing {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(5deg); }
+        }
+
+        .welcome-title {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 2s ease-out;
+        }
+
+        .welcome-name {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 2s ease-out 0.5s both;
+            letter-spacing: 2px;
+        }
+
+        .welcome-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 2s ease-out 1s both;
+        }
+
+        .welcome-enter {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 2s ease-out 1.5s both;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .welcome-enter:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Rose Petals Animation */
+        .rose-petals {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .petal {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: fall linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Main Content Initially Hidden */
+        .main-content {
+            opacity: 0;
+            transition: opacity 1s ease-in;
+        }
+
+        .main-content.visible {
+            opacity: 1;
         }
 
         /* Floating Hearts Animation */
@@ -527,6 +669,22 @@
     </style>
 </head>
 <body>
+    <!-- Welcome Overlay -->
+    <div class="welcome-overlay" id="welcomeOverlay">
+        <!-- Rose Petals Animation -->
+        <div class="rose-petals" id="rosePetals"></div>
+        
+        <div class="welcome-content">
+            <div class="welcome-ring">💍</div>
+            <h1 class="welcome-title">Welcome to</h1>
+            <h2 class="welcome-name">Arooza's</h2>
+            <h3 class="welcome-subtitle">Bridal Shower</h3>
+            <button class="welcome-enter" onclick="enterSite()">Enter Celebration</button>
+        </div>
+    </div>
+
+    <!-- Main Website Content -->
+    <div class="main-content" id="mainContent"
     <!-- Floating Hearts -->
     <div class="floating-hearts" id="floating-hearts"></div>
 
@@ -665,7 +823,7 @@
                                 <div class="activity-desc">🎉 Icebreaker: "How Well Do You Know the Bride?" quiz</div>
                             </div>
                             <div class="timeline-activity">
-                                <div class="activity-desc">📸 Group photos + Gift opening</div>
+                                <div class="activity-desc">📸 Group photos</div>
                             </div>
                             <div class="timeline-activity">
                                 <div class="activity-desc">🎲 Optional games: Bridal Bingo, Guess the Memory</div>
@@ -785,15 +943,89 @@
             </p>
             <div class="footer-hearts">
                 <i data-lucide="heart" class="icon"></i>
-                <span>Made with love for Arooza</span>
+                <span>Made with love for Arooza's Bridal Shower</span>
                 <i data-lucide="heart" class="icon"></i>
             </div>
         </div>
-    </footer>
+    </div>
+
+    </div> <!-- End Main Content -->
 
     <script>
         // Initialize Lucide icons
         lucide.createIcons();
+
+        // Welcome page functionality
+        function createRosePetals() {
+            const container = document.getElementById('rosePetals');
+            const petals = ['🌹', '🌸', '🌺', '💖', '💕', '🌷'];
+            
+            function createPetal() {
+                const petal = document.createElement('div');
+                petal.className = 'petal';
+                petal.textContent = petals[Math.floor(Math.random() * petals.length)];
+                petal.style.left = Math.random() * 100 + '%';
+                petal.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                petal.style.animationDelay = Math.random() * 2 + 's';
+                container.appendChild(petal);
+
+                // Remove petal after animation
+                setTimeout(() => {
+                    if (container.contains(petal)) {
+                        container.removeChild(petal);
+                    }
+                }, 7000);
+            }
+
+            // Create initial petals
+            for (let i = 0; i < 15; i++) {
+                setTimeout(createPetal, i * 200);
+            }
+
+            // Continue creating petals
+            const petalInterval = setInterval(createPetal, 600);
+
+            // Stop creating petals after welcome page
+            setTimeout(() => {
+                clearInterval(petalInterval);
+            }, 8000);
+        }
+
+        function enterSite() {
+            const overlay = document.getElementById('welcomeOverlay');
+            const mainContent = document.getElementById('mainContent');
+            
+            overlay.classList.add('hidden');
+            setTimeout(() => {
+                mainContent.classList.add('visible');
+                initializeMainSite();
+            }, 500);
+        }
+
+        // Auto-enter after 5 seconds
+        function autoEnter() {
+            setTimeout(() => {
+                const overlay = document.getElementById('welcomeOverlay');
+                if (!overlay.classList.contains('hidden')) {
+                    enterSite();
+                }
+            }, 5000);
+        }
+
+        function initializeMainSite() {
+            createFloatingHearts();
+            addInteractiveAnimations();
+            
+            // Add click effects to cards
+            document.querySelectorAll('.hero-card, .extra-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+        }
 
         // Create floating hearts animation
         function createFloatingHearts() {
@@ -866,18 +1098,12 @@
 
         // Initialize everything when page loads
         document.addEventListener('DOMContentLoaded', function() {
-            createFloatingHearts();
-            addInteractiveAnimations();
+            // Initialize welcome page
+            createRosePetals();
+            autoEnter();
             
-            // Add click effects to cards
-            document.querySelectorAll('.hero-card, .extra-card').forEach(card => {
-                card.addEventListener('click', function() {
-                    this.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                    }, 150);
-                });
-            });
+            // Initialize Lucide icons for main content (will be called later)
+            lucide.createIcons();
         });
 
         // Add current time display (optional enhancement)
